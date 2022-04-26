@@ -1,23 +1,24 @@
 import { Column, CreatedAt, Index, IsEmail, Model, Table } from 'sequelize-typescript';
 
 interface ICreateResetPassword {
-	email: string;
-	code: string;
-	createdAt?: string;
+  email: string;
+  code: string;
+  createdAt?: string;
 }
 
 @Table({
-	timestamps: false,
+  timestamps: false,
 })
 export default class ResetPassword extends Model<ResetPassword | ICreateResetPassword> {
-	@IsEmail
-	@Column
-	@Index
-	email: string;
+  @IsEmail
+  @Column
+  @Index
+  email: string;
 
-	@Column
-	code: string;
+  @Column
+  code: string;
 
-	@CreatedAt
-	createdAt: Date;
+  @CreatedAt
+  @Column
+  createdAt: Date;
 }

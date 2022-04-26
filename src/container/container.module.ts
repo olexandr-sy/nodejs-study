@@ -29,24 +29,24 @@ import { IUserService } from '../users/users.service.interface';
 import { CTYPES } from './container.types';
 
 export default new ContainerModule((bind: interfaces.Bind): void => {
-	bind<App>(CTYPES.App).to(App).inSingletonScope();
-	bind<ILoggerService>(CTYPES.ILoggerService).to(LoggerService).inSingletonScope();
-	bind<IConfigService>(CTYPES.IConfigService).to(ConfigService).inSingletonScope();
-	bind<ISequelizeService>(CTYPES.ISequelizeService).to(SequeliseService).inSingletonScope();
-	bind<IExeptionHandler>(CTYPES.IExeptionHanler).to(ExeptionHandler);
-	bind<IBaseRouter>(CTYPES.IBaseRouter).to(BaseRouter);
-	bind<ISmptMailerService>(CTYPES.ISmtpMailerService).to(SmptMailerService).inSingletonScope();
+  bind<App>(CTYPES.App).to(App).inSingletonScope();
+  bind<ILoggerService>(CTYPES.ILoggerService).to(LoggerService).inSingletonScope();
+  bind<IConfigService>(CTYPES.IConfigService).to(ConfigService).inSingletonScope();
+  bind<ISequelizeService>(CTYPES.ISequelizeService).to(SequeliseService).inSingletonScope();
+  bind<IExeptionHandler>(CTYPES.IExeptionHanler).to(ExeptionHandler);
+  bind<IBaseRouter>(CTYPES.IBaseRouter).to(BaseRouter);
+  bind<ISmptMailerService>(CTYPES.ISmtpMailerService).to(SmptMailerService).inSingletonScope();
 
-	// Controllers
-	bind<IAuthController>(CTYPES.IAuthController).to(AuthController);
-	bind<IResetPasswordController>(CTYPES.IResetPasswordController).to(ResetPasswordController);
+  // Controllers
+  bind<IAuthController>(CTYPES.IAuthController).to(AuthController);
+  bind<IResetPasswordController>(CTYPES.IResetPasswordController).to(ResetPasswordController);
 
-	// Services
-	bind<IAuthService>(CTYPES.IAuthService).to(AuthService);
-	bind<IUserService>(CTYPES.IUserService).to(UserService);
-	bind<IResetPasswordService>(CTYPES.IResetPasswordService).to(ResetPasswordService);
-	bind<IResetPasswordRepository>(CTYPES.IResetPasswordRepository).to(ResetPasswordRepository);
+  // Services
+  bind<IAuthService>(CTYPES.IAuthService).to(AuthService);
+  bind<IUserService>(CTYPES.IUserService).to(UserService);
+  bind<IResetPasswordService>(CTYPES.IResetPasswordService).to(ResetPasswordService);
+  bind<IResetPasswordRepository>(CTYPES.IResetPasswordRepository).to(ResetPasswordRepository);
 
-	// Repositories
-	bind<IUserRepository>(CTYPES.IUserRepository).to(UserRepository);
+  // Repositories
+  bind<IUserRepository>(CTYPES.IUserRepository).to(UserRepository);
 });

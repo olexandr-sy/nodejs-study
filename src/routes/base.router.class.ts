@@ -8,19 +8,19 @@ import 'reflect-metadata';
 
 @injectable()
 export class BaseRouter implements IBaseRouter {
-	constructor(
-		@inject(CTYPES.IAuthController) private authController: IAuthController,
-		@inject(CTYPES.IResetPasswordController) private resetPswController: IResetPasswordController,
-	) {}
+  constructor(
+    @inject(CTYPES.IAuthController) private authController: IAuthController,
+    @inject(CTYPES.IResetPasswordController) private resetPswController: IResetPasswordController,
+  ) {}
 
-	initRouters(app: Express): void {
-		app.use('/auth', this.authController.router);
-		app.use('/forgot-password', this.resetPswController.router);
-	}
+  initRouters(app: Express): void {
+    app.use('/auth', this.authController.router);
+    app.use('/forgot-password', this.resetPswController.router);
+  }
 
-	initErrorRouters(app: Express): void {
-		app.get(/.*/, (request: Request, response: Response) => {
-			response.status(404).json({ message: 'Page not found' });
-		});
-	}
+  initErrorRouters(app: Express): void {
+    app.get(/.*/, (request: Request, response: Response) => {
+      response.status(404).json({ message: 'Page not found' });
+    });
+  }
 }

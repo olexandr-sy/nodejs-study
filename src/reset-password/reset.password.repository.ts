@@ -5,18 +5,18 @@ import 'reflect-metadata';
 
 @injectable()
 export class ResetPasswordRepository implements IResetPasswordRepository {
-	async findByCode(code: string): Promise<ResetPassword | null> {
-		return ResetPassword.findOne<ResetPassword>({
-			where: {
-				code: code,
-			},
-		});
-	}
+  async findByCode(code: string): Promise<ResetPassword | null> {
+    return ResetPassword.findOne<ResetPassword>({
+      where: {
+        code: code,
+      },
+    });
+  }
 
-	async create(email: string, code: string): Promise<ResetPassword | null> {
-		return ResetPassword.create({
-			email,
-			code,
-		});
-	}
+  async create(email: string, code: string): Promise<ResetPassword | null> {
+    return ResetPassword.create({
+      email,
+      code,
+    });
+  }
 }
